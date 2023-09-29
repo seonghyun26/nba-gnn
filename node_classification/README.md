@@ -10,7 +10,7 @@ This codebase is written for python3 (used python 3.10.10 while implementing).
 To install requirements, run:
 
 ```setup
-conda env create --file environment.yaml
+conda env create --file env.yaml
 ```
 
 ## Training
