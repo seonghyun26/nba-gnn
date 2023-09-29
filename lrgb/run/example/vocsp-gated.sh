@@ -1,8 +1,9 @@
 cd ../../
 DATASET="vocsuperpixels_lg"
-model="GatedGCN"
+MODEL="GatedGCN"
+CONFIGPATH="configs/NBA/best/"
 
 python main.py \
     --repeat 3 \
-    --cfg configs/best/$DATASET-$model.yaml \
+    --cfg $CONFIGPATH$DATASET-$MODEL.yaml \
     wandb.use False
