@@ -20,32 +20,32 @@ To train the best models for each dataset, run this command:
 
 **Dataset: Cora, Model: GCN+NBA**
 ```
-python train.py --num_steps 1000 --dataset cora --model GCN --nbtm --name nbtm_GCN_l3 --num_layers 3 
+python main.py --num_steps 1000 --dataset cora --model GCN --nbtm --name nbtm_GCN_l3 --num_layers 3 
 ```
 
 **Dataset: CiteSeer, Model: GraphSAGE+NBA+LapPE**
 ```
-python train.py --num_steps 1000 --dataset citeseer --model SAGE --nbtm --PE --name PE_nbtm_SAGE_l3 --num_layers 3 
+python main.py --num_steps 1000 --dataset citeseer --model SAGE --nbtm --PE --name PE_nbtm_SAGE_l3 --num_layers 3 
 ```
 
 **Dataset: PubMed, Model: GraphSAGE+NBA**
 ```
-python train.py --num_steps 1000 --dataset pubmed --model SAGE --nbtm --name nbtm_SAGE_l3 --num_layers 3
+python main.py --num_steps 1000 --dataset pubmed --model SAGE --nbtm --name nbtm_SAGE_l3 --num_layers 3
 ```
 
 **Dataset: Texas, Model: GraphSAGE+NBA+LapPE**
 ```
-python train.py --num_steps 100 --dataset texas --model SAGE --nbtm --PE --name PE_nbtm_SAGE_l3 --num_layers 3
+python main.py --num_steps 100 --dataset texas --model SAGE --nbtm --PE --name PE_nbtm_SAGE_l3 --num_layers 3
 ```
 
 **Dataset: Wisconsin, Model: GraphSAGE+NBA**
 ```
-python train.py --num_steps 100 --dataset wisconsin --model SAGE --nbtm True --name nbtm_SAGE_l4 --num_layers 4
+python main.py --num_steps 100 --dataset wisconsin --model SAGE --nbtm True --name nbtm_SAGE_l4 --num_layers 4
 ```
 
 **Dataset: Cornell, Model: GraphSAGE+NBA**
 ```
-python train.py --num_steps 100 --dataset cornell --model SAGE --nbtm True --name nbtm_SAGE_l4 --num_layers 4 
+python main.py --num_steps 100 --dataset cornell --model SAGE --nbtm True --name nbtm_SAGE_l4 --num_layers 4 
 ```
 
 ## Reading Results
