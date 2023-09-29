@@ -15,8 +15,7 @@ conda env create --file env.yaml
 
 To train the model please run:
 
-``` python main.py
-```
+```python main.py```
 
 ## Contributing
 
