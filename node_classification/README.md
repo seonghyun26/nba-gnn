@@ -48,7 +48,7 @@ python train.py --num_steps 100 --dataset wisconsin --model SAGE --nbtm True --n
 python train.py --num_steps 100 --dataset cornell --model SAGE --nbtm True --name nbtm_SAGE_l4 --num_layers 4 
 ```
 
-## Read Results
+## Reading Results
 
 If you want to see the existing results of trained models, run:
 ```
