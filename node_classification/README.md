@@ -1,5 +1,5 @@
 
-# NON-BACKTRACKING GRAPH NEURAL NETWORK
+# Non-Backtracking Graph Neural Network for node classification
 
 This repository is the official implementation of 'Non-Backtracking Graph Neural Network' for node classification task. 
 
