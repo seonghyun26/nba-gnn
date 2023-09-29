@@ -1,0 +1,46 @@
+out_dir: results
+metric_best: mae
+metric_agg: argmin
+wandb:
+  use: True
+  project: peptides-struct_lg_bb
+dataset:
+  format: OGB
+  name: peptides-structural_lg_bb
+  task: graph
+  task_type: regression
+  transductive: False
+  node_encoder: True
+  node_encoder_name: AtomLG
+  node_encoder_bn: False
+  edge_encoder: True
+  edge_encoder_name: BondLG
+  edge_encoder_bn: False
+train:
+  mode: custom
+  batch_size: 200
+  eval_period: 1
+  ckpt_period: 100
+  # eval_smoothing_metrics: True
+model:
+  type: custom_gnn
+  loss_fun: l1
+  graph_pooling: mean
+gnn:
+  head: mlp_graph
+  layers_pre_mp: 0
+  layers_mp: 8
+  layers_post_mp: 3
+  dim_inner: 102
+  layer_type: gatedgcnconv
+  act: gelu
+  residual: True
+  dropout: 0.1
+optim:
+  clip_grad_norm: True
+  optimizer: adamW
+  weight_decay: 0.0
+  base_lr: 0.001
+  max_epoch: 250
+  scheduler: cosine_with_warmup
+  num_warmup_epochs: 5

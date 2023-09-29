@@ -1,0 +1,68 @@
+out_dir: results
+metric_best: mrr
+num_workers: 16
+wandb:
+  use: True
+  project: pcqm4m-contact_lg
+dataset:
+  format: OGB
+  name: PCQM4Mv2Contact_lg-shuffle
+  task: graph  # PCQM4Mv2Contact is edge-level task, but because it is inductive, set to 'graph'
+  task_type: classification
+  resample_negative: True
+  transductive: False
+  node_encoder: True
+  node_encoder_name: AtomLG+LapPE
+  node_encoder_bn: False
+  edge_encoder: True
+  edge_encoder_name: BondLG
+  edge_encoder_bn: False
+posenc_LapPE:
+  enable: True
+  eigen:
+    laplacian_norm: none
+    eigvec_norm: L2
+    max_freqs: 10
+  model: DeepSet
+  dim_pe: 16
+  layers: 2
+  raw_norm_type: none
+# posenc_RWSE:
+#   enable: False
+#   kernel:
+#     times_func: range(1,21)
+#   model: Linear
+#   dim_pe: 28
+#   raw_norm_type: BatchNorm
+train:
+  mode: custom
+  batch_size: 500
+  eval_period: 1
+  ckpt_period: 30
+  # eval_smoothing_metrics: True
+model:
+  type: custom_gnn
+  loss_fun: cross_entropy
+  edge_decoding: dot
+gnn:
+  head: inductive_edge
+  layers_pre_mp: 0
+  layers_mp: 10
+  layers_post_mp: 1
+  dim_inner: 192
+  layer_type: gcnconv
+  act: gelu
+  residual: True
+  dropout: 0.1
+  batchnorm: False
+  linegraph: True
+  lgvariant: 30
+  self_loop: False
+optim:
+  clip_grad_norm: True
+  optimizer: adamW
+  weight_decay: 0.0
+  base_lr: 0.001
+  max_epoch: 150
+  scheduler: reduce_on_plateau
+  num_warmup_epochs: 10
